@@ -10,21 +10,18 @@ class OptionButtons:
         frame.pack()
 
         self.staticButton = Button(frame, text='Set Adapter to Static IP', command=self.setStaticIP)
-        self.staticButton.pack(side=LEFT)
+        self.staticButton.grid(row=0)
 
         self.staticButton = Button(frame, text='Set Adapter to Dynamic IP', command=self.setDHCP)
-        self.staticButton.pack(side=LEFT)
+        self.staticButton.grid(row=0, column=1)
+
 
         self.exitButton = Button(frame, text='Exit', command=frame.quit)
-        self.exitButton.pack()
+        self.exitButton.grid(row=0, column=3)
 
 
         self.msg = Message(master, text="")
         self.msg.pack(side=LEFT)
-
-
-
-
 
 
     def setStaticIP(self):
@@ -35,14 +32,10 @@ class OptionButtons:
         print ("IP address has been made dynamic")
 
 
-
-
-
-
-
 root = Tk() # Creates a master window.
 buttons = OptionButtons(root)
 root.wm_title("LAN Adapter IP Changer") # Sets the windows title  bar to the app.
 root.geometry("420x340")
+
 
 root.mainloop() #Keeps the master window open until application is closed.
